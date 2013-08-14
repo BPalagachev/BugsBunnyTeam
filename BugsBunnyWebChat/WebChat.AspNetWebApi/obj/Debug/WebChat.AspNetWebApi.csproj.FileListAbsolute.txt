@@ -138,3 +138,5 @@ C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWeb
 C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\obj\Debug\WebChat.AspNetWebApi.csprojResolveAssemblyReference.cache
 C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\obj\Debug\WebChat.AspNetWebApi.dll
 C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\obj\Debug\WebChat.AspNetWebApi.pdb
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\System.Web.Cors.dll
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\System.Web.Http.Cors.dll

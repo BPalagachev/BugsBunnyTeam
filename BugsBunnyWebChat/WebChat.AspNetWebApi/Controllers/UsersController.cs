@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebChat.AspNetWebApi.Models;
 using WebChat.Models;
 
@@ -30,13 +31,12 @@ namespace WebChat.AspNetWebApi.Controllers
         }
 
         // GET api/Users/5
-        public User GetUser(int id)
+        // Nqma da raboti
+        public int GetUser(string name)
         {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
-            }
+            int user = db.Users.Where(x => x.Name == name)
+                .Select(x=>x.UserId)
+                .FirstOrDefault();
 
             return user;
         }
@@ -65,29 +65,6 @@ namespace WebChat.AspNetWebApi.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
-        }
-
-        // DELETE api/Users/5
-        public HttpResponseMessage DeleteUser(int id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            }
-
-            db.Users.Remove(user);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
-            }
-
-            return Request.CreateResponse(HttpStatusCode.OK, user);
         }
 
         protected override void Dispose(bool disposing)

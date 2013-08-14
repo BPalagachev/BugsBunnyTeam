@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebChat.AspNetWebApi.Models;
 using WebChat.Models;
 
@@ -23,7 +24,9 @@ namespace WebChat.AspNetWebApi.Controllers
             {
                 Name = channelName,
                 OpenForSender = true,
-                OpenForReciever = false
+                OpenForReciever = false,
+                RecieverId = RecieverId,
+                SenderId = SenderId
             };
 
             var sender = db.Users.FirstOrDefault(x => x.UserId == SenderId);
@@ -51,7 +54,7 @@ namespace WebChat.AspNetWebApi.Controllers
             }
 
             var openChannels = user.Channels
-                .Where(x => x.OpenForReciever == false);
+                .Where(x => x.OpenForReciever == false && x.RecieverId == userId );
 
             var userChannels = openChannels
                 .Select(x => new GetOpenChannelsByUser()
@@ -68,8 +71,6 @@ namespace WebChat.AspNetWebApi.Controllers
             }
 
             db.SaveChanges();
-
-            var a = userChannels.ToList();
 
             return userChannels;
         }

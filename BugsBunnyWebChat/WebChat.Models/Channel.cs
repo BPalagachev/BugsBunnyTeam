@@ -23,6 +23,8 @@ namespace WebChat.Models
         public string Name { get; set; }
         public bool OpenForSender { get; set; }
         public bool OpenForReciever { get; set; }
+        public int RecieverId { get; set; }
+        public int SenderId { get; set; }
     
         public virtual ICollection<User> Users { get; set; }
     }
