@@ -20,7 +20,9 @@ namespace WebChat.Models
         }
     
         public int ChannelId { get; set; }
-        public string channel1 { get; set; }
+        public string Name { get; set; }
+        public bool OpenForSender { get; set; }
+        public bool OpenForReciever { get; set; }
     
         public virtual ICollection<User> Users { get; set; }
     }

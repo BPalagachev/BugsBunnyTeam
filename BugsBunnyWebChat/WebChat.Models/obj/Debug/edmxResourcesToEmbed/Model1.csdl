@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebChatDb" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WebChatDbEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Channels" EntityType="WebChatDb.Channel" />
+    <EntitySet Name="Messages" EntityType="WebChatDb.Message" />
+    <EntitySet Name="Sessions" EntityType="WebChatDb.Session" />
+    <EntitySet Name="Users" EntityType="WebChatDb.User" />
+    <AssociationSet Name="FK_Messages_Users" Association="WebChatDb.FK_Messages_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sessions_Users" Association="WebChatDb.FK_Sessions_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Sessions" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="Channels_Users" Association="WebChatDb.Channels_Users">
+      <End Role="Channels" EntitySet="Channels" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Channel">
+    <Key>
+      <PropertyRef Name="ChannelId" />
+    </Key>
+    <Property Name="ChannelId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="OpenForSender" Type="Boolean" Nullable="false" />
+    <Property Name="OpenForReciever" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="WebChatDb.Channels_Users" FromRole="Channels" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageId" />
+    </Key>
+    <Property Name="MessageId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="WebChatDb.FK_Messages_Users" FromRole="Messages" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Session">
+    <Key>
+      <PropertyRef Name="SessionId" />
+    </Key>
+    <Property Name="SessionId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IP" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="SessionUID" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="User" Relationship="WebChatDb.FK_Sessions_Users" FromRole="Sessions" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SessionId" Type="Int32" />
+    <Property Name="CheckInTime" Type="DateTime" Precision="3" />
+    <Property Name="CheckOutTime" Type="DateTime" Precision="3" />
+    <Property Name="ChannelId" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <NavigationProperty Name="Messages" Relationship="WebChatDb.FK_Messages_Users" FromRole="Users" ToRole="Messages" />
+    <NavigationProperty Name="Sessions" Relationship="WebChatDb.FK_Sessions_Users" FromRole="Users" ToRole="Sessions" />
+    <NavigationProperty Name="Channels" Relationship="WebChatDb.Channels_Users" FromRole="Users" ToRole="Channels" />
+  </EntityType>
+  <Association Name="FK_Messages_Users">
+    <End Role="Users" Type="WebChatDb.User" Multiplicity="1" />
+    <End Role="Messages" Type="WebChatDb.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sessions_Users">
+    <End Role="Users" Type="WebChatDb.User" Multiplicity="1" />
+    <End Role="Sessions" Type="WebChatDb.Session" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Sessions">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Channels_Users">
+    <End Role="Channels" Type="WebChatDb.Channel" Multiplicity="*" />
+    <End Role="Users" Type="WebChatDb.User" Multiplicity="*" />
+  </Association>
+</Schema>

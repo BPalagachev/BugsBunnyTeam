@@ -15,7 +15,7 @@ namespace WebChat.Models
     public partial class Message
     {
         public int MessageId { get; set; }
-        public string Message1 { get; set; }
+        public string Content { get; set; }
         public System.DateTime SendTime { get; set; }
         public int UserId { get; set; }
     

@@ -23,9 +23,9 @@ namespace WebChat.Models
     
         public int UserId { get; set; }
         public string Name { get; set; }
-        public int SessionId { get; set; }
-        public System.DateTime CheckInTime { get; set; }
-        public System.DateTime CheckOutTime { get; set; }
+        public Nullable<int> SessionId { get; set; }
+        public Nullable<System.DateTime> CheckInTime { get; set; }
+        public Nullable<System.DateTime> CheckOutTime { get; set; }
         public string ChannelId { get; set; }
     
         public virtual ICollection<Message> Messages { get; set; }

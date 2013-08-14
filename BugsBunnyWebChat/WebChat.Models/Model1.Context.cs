@@ -13,10 +13,10 @@ namespace WebChat.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebChatDBEntities : DbContext
+    public partial class WebChatDbEntities : DbContext
     {
-        public WebChatDBEntities()
-            : base("name=WebChatDBEntities")
+        public WebChatDbEntities()
+            : base("name=WebChatDbEntities")
         {
         }
     
@@ -28,7 +28,6 @@ namespace WebChat.Models
         public DbSet<Channel> Channels { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Session> Sessions { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }

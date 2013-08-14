@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebChat.AspNetWebApi", "WebChat.AspNetWebApi\WebChat.AspNetWebApi.csproj", "{483FAD0E-CBD5-4566-9446-F6E0FA542B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebChat.Models", "WebChat.Models\WebChat.Models.csproj", "{A5E36350-7A9F-4AF2-A0B0-30501DFAB931}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebChat.Models", "WebChat.Models\WebChat.Models.csproj", "{653E68E7-3E7F-4DFE-A247-7F6573946AE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{483FAD0E-CBD5-4566-9446-F6E0FA542B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{483FAD0E-CBD5-4566-9446-F6E0FA542B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{483FAD0E-CBD5-4566-9446-F6E0FA542B1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5E36350-7A9F-4AF2-A0B0-30501DFAB931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5E36350-7A9F-4AF2-A0B0-30501DFAB931}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5E36350-7A9F-4AF2-A0B0-30501DFAB931}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5E36350-7A9F-4AF2-A0B0-30501DFAB931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{653E68E7-3E7F-4DFE-A247-7F6573946AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{653E68E7-3E7F-4DFE-A247-7F6573946AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{653E68E7-3E7F-4DFE-A247-7F6573946AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{653E68E7-3E7F-4DFE-A247-7F6573946AE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
