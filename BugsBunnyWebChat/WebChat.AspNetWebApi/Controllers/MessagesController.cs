@@ -20,32 +20,7 @@ namespace WebChat.AspNetWebApi.Controllers
         //}
 
         // GET api/messages/5
-        [HttpPost]
-        public string GetOpenChannels(GetMessageChannel value)
-        {
-            var channelName = Guid.NewGuid().ToString();
-
-            var channel = new Channel()
-            {
-                Name = channelName,
-                OpenForSender = true,
-                OpenForReciever = false
-            };
-
-            var sender = db.Users.FirstOrDefault(x => x.UserId == value.SenderId);
-            var reciever = db.Users.FirstOrDefault(x => x.UserId == value.RecieverId);
-
-            if (sender == null || reciever == null)
-            {
-                throw new NullReferenceException();
-            }
-
-            sender.Channels.Add(channel);
-            reciever.Channels.Add(channel);
-
-            db.SaveChanges();
-            return channelName;
-        }
+        
 
         //// POST api/messages
         //public void Post([FromBody]string value)

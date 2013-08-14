@@ -14,17 +14,35 @@ namespace WebChat.AspNetWebApi.Controllers
         private WebChatDbEntities db = new WebChatDbEntities();
 
 
-        // GET api/channels
-        //public IEnumerable<string> Get()
-        //{
+        [HttpGet]
+        public string OpenChannel(int SenderId, int RecieverId)
+        {
+            var channelName = Guid.NewGuid().ToString();
 
-        //    return new string[] { "value1", "value2" };
-        //}
+            var channel = new Channel()
+            {
+                Name = channelName,
+                OpenForSender = true,
+                OpenForReciever = false
+            };
 
-       
+            var sender = db.Users.FirstOrDefault(x => x.UserId == SenderId);
+            var reciever = db.Users.FirstOrDefault(x => x.UserId == RecieverId);
 
-        // GET api/channels/5
-        public IEnumerable<GetOpenChannelsByUser> OpenChannels(int userId)
+            if (sender == null || reciever == null)
+            {
+                throw new NullReferenceException();
+            }
+
+            sender.Channels.Add(channel);
+            reciever.Channels.Add(channel);
+
+            db.SaveChanges();
+            return channelName;
+        }
+
+        [HttpPost]
+        public IEnumerable<GetOpenChannelsByUser> ReturnOpenedChannels(int userId)
         {
             var user = db.Users.Include("Channels").FirstOrDefault();
             if (user == null)
@@ -35,35 +53,26 @@ namespace WebChat.AspNetWebApi.Controllers
             var openChannels = user.Channels
                 .Where(x => x.OpenForReciever == false);
 
-            var userChannels = openChannels.Select(x => new GetOpenChannelsByUser()
+            var userChannels = openChannels
+                .Select(x => new GetOpenChannelsByUser()
                 {
                     Id = x.ChannelId,
                     Name = x.Name,
-                    Participants = x.Users.Select(us=>us.Name)
-                });
+                    Participants = x.Users.Select(us => us.Name)
+                }).ToList();
+            
 
             foreach (var chan in openChannels)
             {
                 chan.OpenForReciever = true;
             }
-            
+
+            db.SaveChanges();
+
+            var a = userChannels.ToList();
 
             return userChannels;
         }
 
-        //// POST api/channels
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT api/channels/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/channels/5
-        //public void Delete(int id)
-        //{
-        //}
     }
 }
