@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebChat.Models;
 
 namespace WebChat.AspNetWebApi.Controllers
 {
@@ -12,6 +13,14 @@ namespace WebChat.AspNetWebApi.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            var db = new WebChatDBEntities();
+            db.Channels.Add(new Channel()
+            {
+                channel1 = "Test Name",
+            });
+
+            db.SaveChanges();
+
             return new string[] { "value1", "value2" };
         }
 
