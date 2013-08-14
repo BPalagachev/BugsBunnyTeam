@@ -1,0 +1,8 @@
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\WebChat.Models.dll.config
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\WebChat.Models.dll
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\WebChat.Models.pdb
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\EntityFramework.dll
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\EntityFramework.xml
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.dll
+C:\Users\User\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.pdb
