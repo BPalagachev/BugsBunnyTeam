@@ -8,6 +8,7 @@ namespace WebChat.AspNetWebApi.Models
     public class CreateUserModel
     {
         public string UserName { get; set; }
+
     }
 
     public class GetAllUsersModel
