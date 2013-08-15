@@ -21,7 +21,7 @@ namespace WebChat.AspNetWebApi.Controllers
         // GET api/Users
         public IEnumerable<GetAllUsersModel> GetUsers()
         {
-            var allUsers = db.Users.Select(x => new GetAllUsersModel()
+            var allUsers = db.Users.OrderBy(x=>x.Name).Select(x => new GetAllUsersModel()
             {
                 Id  = x.UserId,
                 Name = x.Name

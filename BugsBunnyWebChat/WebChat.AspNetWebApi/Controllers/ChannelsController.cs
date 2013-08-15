@@ -47,7 +47,7 @@ namespace WebChat.AspNetWebApi.Controllers
         [HttpPost]
         public IEnumerable<GetOpenChannelsByUser> ReturnOpenedChannels(int userId)
         {
-            var user = db.Users.Include("Channels").FirstOrDefault();
+            var user = db.Users.Include("Channels").FirstOrDefault(x=>x.UserId == userId);
             if (user == null)
             {
                 throw new NullReferenceException();
