@@ -55,6 +55,7 @@
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SendTime" Type="datetime" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RecieverId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Sessions">
           <Key>
@@ -169,6 +170,7 @@
           <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="WebChatDb.FK_Messages_Users" FromRole="Messages" ToRole="Users" />
+          <Property Type="Int32" Name="RecieverId" Nullable="false" />
         </EntityType>
         <EntityType Name="Session">
           <Key>
@@ -245,6 +247,7 @@
           <EntitySetMapping Name="Messages">
             <EntityTypeMapping TypeName="WebChatDb.Message">
               <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="RecieverId" ColumnName="RecieverId" />
                 <ScalarProperty Name="MessageId" ColumnName="MessageId" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="SendTime" ColumnName="SendTime" />

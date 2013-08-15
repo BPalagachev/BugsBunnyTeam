@@ -306,3 +306,13 @@ C:\Users\VAIO\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebA
 C:\Users\VAIO\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\obj\Debug\WebChat.AspNetWebApi.csprojResolveAssemblyReference.cache
 C:\Users\VAIO\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\obj\Debug\WebChat.AspNetWebApi.dll
 C:\Users\VAIO\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\obj\Debug\WebChat.AspNetWebApi.pdb
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Common.Logging.dll
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Rest.dll
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Social.Core.dll
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Social.Dropbox.dll
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Rest.pdb
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Rest.xml
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Social.Core.pdb
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Social.Core.xml
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Social.Dropbox.pdb
+C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.AspNetWebApi\bin\Spring.Social.Dropbox.xml

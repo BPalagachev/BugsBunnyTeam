@@ -39,6 +39,7 @@
     <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="User" Relationship="WebChatDb.FK_Messages_Users" FromRole="Messages" ToRole="Users" />
+    <Property Type="Int32" Name="RecieverId" Nullable="false" />
   </EntityType>
   <EntityType Name="Session">
     <Key>
@@ -63,6 +64,8 @@
     <NavigationProperty Name="Messages" Relationship="WebChatDb.FK_Messages_Users" FromRole="Users" ToRole="Messages" />
     <NavigationProperty Name="Sessions" Relationship="WebChatDb.FK_Sessions_Users" FromRole="Users" ToRole="Sessions" />
     <NavigationProperty Name="Channels" Relationship="WebChatDb.Channels_Users" FromRole="Users" ToRole="Channels" />
+    <Property Type="String" Name="ProfilePicUrl" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Type="Boolean" Name="OnlineStatus" />
   </EntityType>
   <Association Name="FK_Messages_Users">
     <End Role="Users" Type="WebChatDb.User" Multiplicity="1" />

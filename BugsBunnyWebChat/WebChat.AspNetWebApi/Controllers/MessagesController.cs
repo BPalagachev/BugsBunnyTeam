@@ -60,6 +60,7 @@ namespace WebChat.AspNetWebApi.Controllers
                         where users.UserId == file.UserId
                         select users).FirstOrDefault(),
                 UserId = file.UserId,
+                RecieverId = file.RecieverId
             };
 
             if (file.IsProfilePic)

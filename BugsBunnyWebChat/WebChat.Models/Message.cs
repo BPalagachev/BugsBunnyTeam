@@ -18,6 +18,7 @@ namespace WebChat.Models
         public string Content { get; set; }
         public System.DateTime SendTime { get; set; }
         public int UserId { get; set; }
+        public int RecieverId { get; set; }
     
         public virtual User User { get; set; }
     }

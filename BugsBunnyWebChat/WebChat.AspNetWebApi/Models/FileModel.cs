@@ -12,5 +12,7 @@ namespace WebChat.AspNetWebApi.Models
         public int UserId { get; set; }
 
         public bool IsProfilePic { get; set; }
+
+        public int RecieverId { get; set; }
     }
 }

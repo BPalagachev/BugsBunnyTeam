@@ -16,6 +16,7 @@
     <EntitySetMapping Name="Messages">
       <EntityTypeMapping TypeName="WebChatDb.Message">
         <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="RecieverId" ColumnName="RecieverId" />
           <ScalarProperty Name="MessageId" ColumnName="MessageId" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="SendTime" ColumnName="SendTime" />
@@ -36,6 +37,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="WebChatDb.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="OnlineStatus" ColumnName="OnlineStatus" />
+          <ScalarProperty Name="ProfilePicUrl" ColumnName="ProfilePicUrl" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="SessionId" ColumnName="SessionId" />
