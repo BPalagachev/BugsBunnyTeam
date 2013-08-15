@@ -31,6 +31,8 @@
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="OpenForSender" Type="bit" Nullable="false" />
     <Property Name="OpenForReciever" Type="bit" Nullable="false" />
+    <Property Name="RecieverId" Type="int" Nullable="false" />
+    <Property Name="SenderId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Channels_Users">
     <Key>

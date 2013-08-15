@@ -12,5 +12,9 @@ namespace WebChat.AspNetWebApi.Models
         public string Name { get; set; }
 
         public IEnumerable<String> Participants { get; set; }
+
+        public int UserId { get; set; }
+
+        public string UserName { get; set; }
     }
 }

@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Channels">
       <EntityTypeMapping TypeName="WebChatDb.Channel">
         <MappingFragment StoreEntitySet="Channels">
+          <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+          <ScalarProperty Name="RecieverId" ColumnName="RecieverId" />
           <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="OpenForSender" ColumnName="OpenForSender" />

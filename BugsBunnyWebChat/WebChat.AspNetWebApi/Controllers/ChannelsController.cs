@@ -54,16 +54,25 @@ namespace WebChat.AspNetWebApi.Controllers
             }
 
             var openChannels = user.Channels
-                .Where(x => x.OpenForReciever == false && x.RecieverId == userId );
+                .Where(x => x.OpenForReciever == false && x.RecieverId == userId);
 
             var userChannels = openChannels
                 .Select(x => new GetOpenChannelsByUser()
                 {
                     Id = x.ChannelId,
                     Name = x.Name,
-                    Participants = x.Users.Select(us => us.Name)
+                    Participants = x.Users.Select(us => us.Name),
+                    UserId = x.Users
+                        .Where(y => y.UserId != userId)
+                        .Select(y => y.UserId)
+                        .FirstOrDefault(),
+                    UserName = x.Users
+                        .Where(y => y.UserId != userId)
+                        .Select(y => y.Name)
+                        .FirstOrDefault()
+
                 }).ToList();
-            
+
 
             foreach (var chan in openChannels)
             {

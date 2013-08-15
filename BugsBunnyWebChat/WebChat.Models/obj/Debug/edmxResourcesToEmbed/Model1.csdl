@@ -27,6 +27,8 @@
     <Property Name="OpenForSender" Type="Boolean" Nullable="false" />
     <Property Name="OpenForReciever" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Users" Relationship="WebChatDb.Channels_Users" FromRole="Channels" ToRole="Users" />
+    <Property Type="Int32" Name="RecieverId" Nullable="false" />
+    <Property Type="Int32" Name="SenderId" Nullable="false" />
   </EntityType>
   <EntityType Name="Message">
     <Key>

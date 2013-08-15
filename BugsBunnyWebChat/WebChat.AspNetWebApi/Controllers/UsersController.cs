@@ -57,7 +57,7 @@ namespace WebChat.AspNetWebApi.Controllers
                 newUser.Channels.Add(commonChannel);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, user);
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, newUser.UserId);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = newUser.UserId }));
                 return response;
             }
