@@ -46,20 +46,31 @@ namespace WebChat.AspNetWebApi.Controllers
         {
             if (!string.IsNullOrEmpty(user.UserName))
             {
-                var commonChannel = db.Channels.FirstOrDefault(x => x.Name.Contains("CommonCh"));
-                var newUser = new User()
+                var aaaa = db.Users.Where(x => x.Name == user.UserName).FirstOrDefault();
+                if (aaaa == null)
                 {
-                    Name = user.UserName,
-                };
+                    var commonChannel = db.Channels.FirstOrDefault(x => x.Name.Contains("CommonCh"));
+                    var newUser = new User()
+                    {
+                        Name = user.UserName,
+                    };
 
-                db.Users.Add(newUser);
-                db.SaveChanges();
-                newUser.Channels.Add(commonChannel);
-                db.SaveChanges();
+                    db.Users.Add(newUser);
+                    db.SaveChanges();
+                    newUser.Channels.Add(commonChannel);
+                    db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, newUser.UserId);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = newUser.UserId }));
-                return response;
+                    HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, newUser.UserId);
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = newUser.UserId }));
+                    return response;
+                }
+                else
+                {
+                     HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, aaaa.UserId);
+                    response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = aaaa.UserId }));
+                    return response;
+                }
+                
             }
             else
             {
