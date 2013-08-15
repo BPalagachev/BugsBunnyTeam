@@ -71,7 +71,7 @@
     <Property Name="CheckInTime" Type="datetime" />
     <Property Name="CheckOutTime" Type="datetime" />
     <Property Name="ChannelId" Type="nchar" MaxLength="10" />
-    <Property Name="ProfilePicUrl" Type="nchar" MaxLength="100" />
+    <Property Name="ProfilePicUrl" Type="nvarchar" MaxLength="255" />
     <Property Name="OnlineStatus" Type="bit" />
   </EntityType>
   <Association Name="FK_Channels_Users_Channel">

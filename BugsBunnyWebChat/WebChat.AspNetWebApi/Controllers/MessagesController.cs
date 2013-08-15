@@ -19,8 +19,6 @@ namespace WebChat.AspNetWebApi.Controllers
         private const string DropboxAppKey = "wkbe4x03hza334g";
         private const string DropboxAppSecret = "1ucy36z7y6kga2k";
 
-        private const string OAuthTokenFileName = "D:/OAuthTokenFileName.txt";
-
         // POST api/messages
         [HttpPost]
         public void PostFile(FileModel file)
@@ -28,12 +26,7 @@ namespace WebChat.AspNetWebApi.Controllers
             DropboxServiceProvider dropboxServiceProvider =
                 new DropboxServiceProvider(DropboxAppKey, DropboxAppSecret, AccessLevel.AppFolder);
 
-            // Authenticate the application (if not authenticated) and load the OAuth token
-            if (!File.Exists(OAuthTokenFileName))
-            {
-                AuthorizeAppOAuth(dropboxServiceProvider);
-            }
-            OAuthToken oauthAccessToken = LoadOAuthToken();
+            OAuthToken oauthAccessToken = new OAuthToken("9gyo6l0xq3l7kdd0", "ly7ayinrqbocfy8");
 
             // Login in Dropbox
             IDropbox dropbox = dropboxServiceProvider.GetApi(oauthAccessToken.Value, oauthAccessToken.Secret);
@@ -48,10 +41,9 @@ namespace WebChat.AspNetWebApi.Controllers
                 "/" + newFolderName + "/" + file.Name).Result;
 
             // Share a file
-            DropboxLink sharedUrl = dropbox.GetShareableLinkAsync(uploadFileEntry.Path).Result;
-            Process.Start(sharedUrl.Url);
-           
-            //Update database
+            DropboxLink sharedUrl = dropbox.GetMediaLinkAsync(uploadFileEntry.Path).Result;
+
+           // Update database
             Message newMessage = new Message()
             {
                 Content = sharedUrl.Url.ToString(),
@@ -73,33 +65,6 @@ namespace WebChat.AspNetWebApi.Controllers
 
             db.Messages.Add(newMessage);
             db.SaveChanges();
-        }
-
-        private static OAuthToken LoadOAuthToken()
-        {
-            string[] lines = File.ReadAllLines(OAuthTokenFileName);
-            OAuthToken oauthAccessToken = new OAuthToken(lines[0], lines[1]);
-            return oauthAccessToken;
-        }
-
-        private static void AuthorizeAppOAuth(DropboxServiceProvider dropboxServiceProvider)
-        {
-            OAuthToken oauthToken = dropboxServiceProvider.OAuthOperations.FetchRequestTokenAsync(null, null).Result;
-            OAuth1Parameters parameters = new OAuth1Parameters();
-            string authenticateUrl = dropboxServiceProvider.OAuthOperations.BuildAuthorizeUrl(
-                oauthToken.Value, parameters);
-            Process.Start(authenticateUrl);
-            Thread.Sleep(10000);
-
-            AuthorizedRequestToken requestToken = new AuthorizedRequestToken(oauthToken, null);
-            OAuthToken oauthAccessToken =
-                dropboxServiceProvider.OAuthOperations.ExchangeForAccessTokenAsync(requestToken, null).Result;
-            string[] oauthData = new string[]
-            {
-                oauthAccessToken.Value,
-                oauthAccessToken.Secret
-            };
-            File.WriteAllLines(OAuthTokenFileName, oauthData);
         }
     }
 }

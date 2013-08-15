@@ -63,7 +63,7 @@ namespace WebChat.AspNetWebApi.Controllers
                     {
                         Name = user.UserName,
                         OnlineStatus = true,
-                        ProfilePicUrl = DefaultAvatar
+                        ProfilePicUrl = DefaultAvatar.Trim()
                     };
 
                     db.Users.Add(newUser);
@@ -87,7 +87,7 @@ namespace WebChat.AspNetWebApi.Controllers
             }
             else
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, new Exception());
             }
         }
 
