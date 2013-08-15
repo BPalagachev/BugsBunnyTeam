@@ -6,3 +6,11 @@ C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bi
 C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.csprojResolveAssemblyReference.cache
 C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.dll
 C:\Users\Boyan\Documents\GitHub\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.pdb
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\WebChat.Models.dll.config
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\WebChat.Models.dll
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\WebChat.Models.pdb
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\EntityFramework.dll
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\bin\Debug\EntityFramework.xml
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.csprojResolveAssemblyReference.cache
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.dll
+C:\Telerik Academy\web-services\Lectures\11. Team work\BugsBunnyTeam\BugsBunnyTeam\BugsBunnyWebChat\WebChat.Models\obj\Debug\WebChat.Models.pdb

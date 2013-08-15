@@ -75,6 +75,8 @@
           <Property Name="CheckInTime" Type="datetime" />
           <Property Name="CheckOutTime" Type="datetime" />
           <Property Name="ChannelId" Type="nchar" MaxLength="10" />
+          <Property Name="ProfilePicUrl" Type="nchar" MaxLength="100" />
+          <Property Name="OnlineStatus" Type="bit" />
         </EntityType>
         <Association Name="FK_Channels_Users_Channel">
           <End Role="Channels" Type="WebChatDb.Store.Channels" Multiplicity="1" />
@@ -191,6 +193,8 @@
           <NavigationProperty Name="Messages" Relationship="WebChatDb.FK_Messages_Users" FromRole="Users" ToRole="Messages" />
           <NavigationProperty Name="Sessions" Relationship="WebChatDb.FK_Sessions_Users" FromRole="Users" ToRole="Sessions" />
           <NavigationProperty Name="Channels" Relationship="WebChatDb.Channels_Users" FromRole="Users" ToRole="Channels" />
+          <Property Type="String" Name="ProfilePicUrl" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="OnlineStatus" />
         </EntityType>
         <Association Name="FK_Messages_Users">
           <End Role="Users" Type="WebChatDb.User" Multiplicity="1" />
@@ -261,6 +265,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="WebChatDb.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="OnlineStatus" ColumnName="OnlineStatus" />
+                <ScalarProperty Name="ProfilePicUrl" ColumnName="ProfilePicUrl" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SessionId" ColumnName="SessionId" />

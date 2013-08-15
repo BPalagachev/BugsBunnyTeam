@@ -27,6 +27,8 @@ namespace WebChat.Models
         public Nullable<System.DateTime> CheckInTime { get; set; }
         public Nullable<System.DateTime> CheckOutTime { get; set; }
         public string ChannelId { get; set; }
+        public string ProfilePicUrl { get; set; }
+        public Nullable<bool> OnlineStatus { get; set; }
     
         public virtual ICollection<Message> Messages { get; set; }
         public virtual ICollection<Session> Sessions { get; set; }
